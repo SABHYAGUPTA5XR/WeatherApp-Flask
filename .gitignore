@@ -1,0 +1,48 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment directory
+venv/
+
+# Environment variables
+.env
+
+# Flask-specific files
+instance/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Database files (if using SQLite locally)
+*.db
+*.sqlite3
+
+# Static files cache (if using Flask-Assets or similar tools)
+static/cache/
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# macOS-specific files
+.DS_Store
+
+# Windows-specific files
+Thumbs.db
+desktop.ini
+
+# Backup files
+*.bak
+*.swp
+
+# Node.js (if using npm/yarn for JS)
+node_modules/
+package-lock.json
+yarn.lock
