@@ -1,25 +1,103 @@
+/* Starry Background */
 body {
     font-family: 'Open Sans', sans-serif;
     color: white;
     text-align: center;
-    background-color: black;
+    background: linear-gradient(135deg, rgb(31, 9, 204), black, rgb(60, 4, 227));
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-h1, h2 {
+/* Static Stars */
+.stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.solarsystemscope.com/textures/download/2k_stars.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.6;
+    animation: twinkle 5s infinite alternate;
+    z-index: -1;
+}
+
+/* Twinkling Effect */
+@keyframes twinkle {
+    from {
+        opacity: 0.7;
+    }
+
+    to {
+        opacity: 0.9;
+    }
+}
+
+/* --- SHOOTING STARS --- */
+.shooting-stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+/* Shooting Star Base */
+.shooting-stars::before,
+.shooting-stars::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(transparent, white, transparent);
+    opacity: 0.8;
+    animation: shootingStar 4s infinite linear;
+}
+
+/* Second Shooting Star */
+.shooting-stars::after {
+    animation-delay: 2s;
+    /* Delays second star for realism */
+    left: 80%;
+}
+
+/* Shooting Star Animation */
+@keyframes shootingStar {
+    0% {
+        transform: translateY(-100px) translateX(100px) rotate(30deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(800px) translateX(-800px) rotate(30deg);
+        opacity: 0;
+    }
+}
+
+
+/* Headings */
+h1 {
     font-weight: 300;
     margin-bottom: 20px;
 }
 
-#weatherInfo {
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: 300;
-}
-
+/* Form Styling */
 form {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    width: 250px;
 }
 
+/* Input Field */
 input[type="text"] {
     padding: 10px;
     font-size: 16px;
@@ -28,10 +106,11 @@ input[type="text"] {
     box-sizing: border-box;
 }
 
+/* Submit Button */
 button[type="submit"] {
     background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
+    padding: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -41,8 +120,33 @@ button[type="submit"]:hover {
     background-color: #45a049;
 }
 
-p {
-    margin-bottom: 20px;
+/* Weather Card */
+.weather-card {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    width: 300px;
 }
 
+/* Error Message */
+.error {
+    color: red;
+    font-weight: bold;
+}
 
+/* Awesome Button */
+.btn {
+    display: inline-block;
+    background-color: cyan;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: white;
+    color: black;
+}
